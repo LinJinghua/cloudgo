@@ -6,7 +6,7 @@
 基于现有 web 库，编写一个类似 [cloudgo](http://blog.csdn.net/pmlpml/article/details/78404838#t4) 的简单 web 应用。
 
 #### 程序逻辑：
-> hello user 的 web 服务。
+hello user 的 web 服务。
 
 #### 使用方法
 ```
@@ -16,7 +16,12 @@ Usage of cloudgo:
 
 ## 2. 使用的框架
 程序使用了[fasthttp](https://github.com/valyala/fasthttp)库以及支持fasthttp的[fasthttprouter](https://github.com/buaazp/fasthttprouter)路由库，结合起来使用，是非常不错的web server框架，号称比官方库[net/http](https://golang.org/pkg/net/http/)快10倍以上。
-快的原因
+快的原因主要有：
+
+ - `fasthttp`会延迟解析 HTTP 请求中的数据，尤其是 Body 部分。
+ - `net/http`解析的请求数据多用`string`，有很多不必要的`[]byte`到`string`的转换，而这转换开销不小。`fasthttp`直接返回`[]byte`。
+
+
 当然，`fasthttp`也有缺陷：
 
  - 现在还不支持HTTP/2.0，也不支持WebSocket。
