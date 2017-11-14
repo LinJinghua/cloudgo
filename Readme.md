@@ -5,7 +5,7 @@
 ## 1. 概览
 基于现有 web 库，编写一个类似 [cloudgo](http://blog.csdn.net/pmlpml/article/details/78404838#t4) 的简单 web 应用。
 
-#### 程序逻辑：
+#### 程序逻辑
 hello user 的 web 服务。
 
 #### 使用方法
@@ -30,9 +30,7 @@ Usage of cloudgo:
 但在十倍的性能提升下，决定尝试一下`fasthttp`。
 
 ## 3. 测试
-
-####curl测试
-
+#### `curl`测试
 测试结果如下。显然请求得到了正确回复：`{"Test":"Hello testuser"}`。
 ```
 $ curl -v http://localhost:9090/hello/testuser
@@ -55,8 +53,7 @@ $ curl -v http://localhost:9090/hello/testuser
 * Connection #0 to host localhost left intact
 ```
 
-####ab测试
-
+#### `ab`测试
 参数说明参考了[CentOS服务器Http压力测试之ab](http://linux.it.net.cn/CentOS/fast/2015/0715/16393.html)。
 测试结果如下。总体而言，在并发个数为100，总请求个数为1000的情况下，服务器平均每秒收到`3725.74`个请求，服务器平均请求等待时间为`0.268`ms，用户平均请求等待时间为`26.840`ms。50％的用户请求等待时间小于`26`ms，最长的用户请求等待时间为`46`ms。
 ```
